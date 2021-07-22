@@ -41,13 +41,13 @@
     }
 
     function getMessages(){
-      $.get('http://18.233.5.196:3000/messages', (data) => {
+      $.get('http://3.224.253.199:3000/messages', (data) => {
         data.forEach(addMessages);
       })
     }
 
     function sendMessage(message){
-      $.post('http://18.233.5.196:3000/messages', message)
+      $.post('http://3.224.253.199:3000/messages', message)
     }
 </script>
 </body>
