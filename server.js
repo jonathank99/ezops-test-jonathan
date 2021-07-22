@@ -5,8 +5,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
 app.use(express.static(__dirname));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 var Message = mongoose.model('Message',{
   name : String,
   message : String
