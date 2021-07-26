@@ -30,12 +30,12 @@ jobs:
       run: npm install
       
     - name: Build project
-      run: npm run build
+      run: npm run start
       
     - name: Stop pm2
-      run: pm2 stop app-2
+      run: pm2 stop app
       if: ${{failure()}}
       
       
     - name: Start pm2
-      run: pm2 start dist/server.js --name app-2
+      run: pm2 start ./server.js --name app
