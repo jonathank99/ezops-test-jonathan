@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: Install dependencies
-      run: npm install
+      run: npm install && npm install -s express && npm install -s socket.io && npm install -s mongoose && npm install -s body-parser && npm install -s http
       
     - name: Build project
       run: npm run start
