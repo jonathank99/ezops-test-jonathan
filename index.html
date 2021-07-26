@@ -11,14 +11,14 @@
 <body>
   <div class="container">
     <br>
-    <div class="jumbotron">
+  <div class="jumbotron">
         <h1 class="display-4">Chat</h1>
         <br>
         <input id = "name" class="form-control" placeholder="Digite seu nome">
         <br>
         <textarea id = "message" class="form-control" placeholder="Digite sua mensagem"></textarea>
         <br>
-        <button id="send" class="btn btn-success">Enviaaaaaar</button>
+        <button id="send" class="btn btn-success">Enviar</button>
     </div>
     <div id="messages">
 
@@ -36,18 +36,31 @@
 
     socket.on('message', addMessages)
 
+    function pegarDataAtual(){
+  var dataAtual = new Date();
+  var dia = (dataAtual.getDate()<10 ? '0' : '') + dataAtual.getDate();
+  var mes = ((dataAtual.getMonth() + 1)<10 ? '0' : '') + (dataAtual.getMonth() + 1);
+  var ano = dataAtual.getFullYear();
+  var hora = (dataAtual.getHours()<10 ? '0' : '') + dataAtual.getHours();
+  var minuto = (dataAtual.getMinutes()<10 ? '0' : '') + dataAtual.getMinutes();
+  var segundo = (dataAtual.getSeconds()<10 ? '0' : '') + dataAtual.getSeconds();
+
+  var dataFormatada = dia + "/" + mes + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;
+  return dataFormatada;
+}
+
     function addMessages(message){
-        $("#messages").append(`<h4> ${message.name} </h4> <p> ${message.message} </p>`)
+        $("#messages").append(`<p>  [${pegarDataAtual()}]${message.name}: ${message.message} </p>`)
     }
 
     function getMessages(){
-      $.get('http://3.224.253.199:3000/messages', (data) => {
+      $.get('http://localhost:3000/messages', (data) => {
         data.forEach(addMessages);
       })
     }
 
     function sendMessage(message){
-      $.post('http://3.224.253.199:3000/messages', message)
+      $.post('http://localhost:3000/messages', message)
     }
     
 
