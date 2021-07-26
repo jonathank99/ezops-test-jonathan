@@ -28,7 +28,8 @@ jobs:
         
     - name: Install dependencies
       run:  npm install 
-        
+    - name: Desligar app
+      run: docker-compose down
       
     - name: Start containers
       run: docker-compose -f "docker-compose.yml" up -d --build
