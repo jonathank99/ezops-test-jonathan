@@ -5,4 +5,4 @@ services:
         build: .
         ports: 
             - "3000:3000"
-        command: sh -c 'npm install -s express && npm install -s socket.io && npm install -s mongoose && npm install -s body-parser && npm install -s http && yarn start'   
+        command: sh -c 'yarn start'   
