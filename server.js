@@ -4,6 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
+const { Socket } = require('dgram');
 app.use(express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -31,8 +32,10 @@ app.post('/messages', (req, res) => {
     res.sendStatus(200);
   })
 })
+
 io.on('connection', () =>{
-  console.log('a user is connected')
+  console.log('Usuario conectado')
+  
 })
 mongoose.connect(dbUrl ,{useMongoClient : true} ,(err) => {
   console.log('mongodb connected',err);

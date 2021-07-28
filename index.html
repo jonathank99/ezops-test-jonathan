@@ -12,7 +12,7 @@
   <div class="container">
     <br>
   <div class="jumbotron">
-        <h1 class="display-4">Chat</h1>
+        <h1 class="display-4">EZOps-teste-28/07</h1>
         <br>
         <input id = "name" class="form-control" placeholder="Digite seu nome">
         <br>
@@ -48,6 +48,10 @@
   var dataFormatada = dia + "/" + mes + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;
   return dataFormatada;
 }
+
+
+
+
 
     function addMessages(message){
         $("#messages").append(`<p>  [${pegarDataAtual()}]${message.name}: ${message.message} </p>`)
